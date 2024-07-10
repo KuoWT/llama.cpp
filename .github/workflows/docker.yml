@@ -103,14 +103,5 @@ jobs:
           push: true
           platforms: ${{ matrix.config.platforms }}
           # tags: "ghcr.io/${{ env.repository_owner_lowercase }}/llama.cpp:${{ matrix.config.tag }}-${{ env.COMMIT_SHA }}"
-          tags: " kevinkho/cuda/llama.cpp:${{ matrix.config.tag }}-${{ env.COMMIT_SHA }}"
-          file: ${{ matrix.config.dockerfile }}
-
-      - name: Build and push Docker image (tagged)
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: ${{ github.event_name == 'push' }}
-          platforms: ${{ matrix.config.platforms }}
-          tags: "ghcr.io/${{ env.repository_owner_lowercase }}/llama.cpp:${{ matrix.config.tag }},ghcr.io/${{ env.repository_owner_lowercase }}/llama.cpp:${{ matrix.config.tag }}-${{ steps.tag.outputs.name }}"
+          tags: "kevinkho/cuda:latest"
           file: ${{ matrix.config.dockerfile }}
