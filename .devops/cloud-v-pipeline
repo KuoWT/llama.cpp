@@ -20,3 +20,4 @@ node('x86_runner1'){            // Running on x86 runner containing latest vecto
         '''
     }
 }
+}
